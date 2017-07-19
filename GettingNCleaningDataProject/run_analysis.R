@@ -14,9 +14,6 @@ activityLabels <- read.table("UCI HAR Dataset/activity_labels.txt")
  featuresFiltered.names = gsub('-mean', 'Mean', featuresFiltered.names) 
  featuresFiltered.names = gsub('-std', 'Std', featuresFiltered.names) 
  featuresFiltered.names <- gsub('[-()]', '', featuresFiltered.names) 
- 
-
- 
 
  # Load the datasets
  train <- read.table("UCI HAR Dataset/train/X_train.txt")[featuresFiltered] 
@@ -36,7 +33,7 @@ activityLabels <- read.table("UCI HAR Dataset/activity_labels.txt")
 
  # merge datasets and add labels 
  allData <- rbind(train, test) 
- colnames(allData) <- c("subject", "activity", featuresWanted.names) 
+ colnames(allData) <- c("subject", "activity", featuresFiltered.names) 
  
 
  # turn activities & subjects into factors 
